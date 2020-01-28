@@ -1,0 +1,9 @@
+DELIMITER //
+DROP PROCEDURE IF EXISTS deleteUsers //
+
+CREATE PROCEDURE deleteUsers()
+BEGIN
+  DELETE
+    FROM users;
+END //
+DELIMITER ;

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Project By Jake and Pat</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
+  </head>
+  <body>
+    <header>
+      <h2>Video Upload Website</h2>
+    </header>
+    </br>
+    <div id="app">
+      <!-- File Subbmission -->
+      <div class="container">
+        <div class="large-12 medium-12 small-12 cell">
+          <label>File
+            <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+          </label>
+            <button v-on:click="submitFile()">Submit</button>
+        </div>
+      </div>
+      <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a v-on:click="loadVideos" style="color:white;">Videos</a>
+        <a v-on:click="loadUsers" style="color:white;">Users</a>
+
+        <a v-on:click="loginLoad" style="color:white;">Logged in?</a>
+        <a v-on:click="logout" style="color:white;">Logout</a>
+        <a v-on:click="aUserPage" style="color:white;">Add User</a>
+      </div>
+      <div class="alert alert-success alert-dismissible">
+        <strong>{{  responseMessage.message  }}</strong>
+      </div>
+      <div class="MainPage">
+        <div>
+          <h1>Users<h1>
+          <!-- Load all users -->
+          <div v-for="user in info" class="Users">
+            <ol>
+              <li>
+                <a @click="loadUser($event, user.handle)" href='#'>{{ user.handle }}</a>
+                <button type="button" class="btn btn-danger" @click="deleteUser($event, user.handle)">Delete</button>
+                <div id="updateBox">
+                  <form class="form-updateUser" @submit.prevent="updateUser($event, user.handle)">
+                    <input v-model="newHandle" placeholder="New Handle">
+                    <button class="btn btn-info" type="submit">Update</button>
+                  </form>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <!-- Add a new user -->
+          <div id="addUsersDiv">
+            <form class="form-signin" @submit.prevent="adduser">
+              <h2 class="form-signin-heading">Add a User</h2>
+              <label style="color:white;" class="sr-only">Username</label>
+              <input v-model="usern" type="username" class="form-control" placeholder="Username" required>
+              <label style="color:white;" class="sr-only">Handle</label>
+              <input v-model="handle" type="text" class="form-control" placeholder="Handle" required>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+            </form>
+          </div>
+          <label id="checkUser"></label>
+        </div>
+        <div> {{userInfo}}</div>
+        </br>
+        <div>
+          <!-- Load all videos -->
+          <h1>Videos</h1>
+          <div v-for="file in videos.Files" class="Files">
+            <a @click="playVideo($event, file)" href='#'>Video to play</a>
+          </div>
+          <video ref="videoRef" src="" id="video-container" width="320" height="240" controls >
+          </video>
+          <div v-for="video in videos.Videos" class="Videos">
+            </br>
+            <span>
+              <div>
+               <a @click="loadVideo($event, video.fileName)" href='#'>{{ video.title }}</a>
+              </div>
+               <div class="t">
+                 <ul>
+                   <li>
+                     <button type="button" class="btn btn-danger" @click="deleteVideo($event, video.title)">Delete</button>
+                     <div id="updateBox">
+                       <form class="form-updateUser" @submit.prevent="updateVideo($event, video.title)">
+                         <input v-model="newTitle" placeholder="New Title">
+                         <button class="btn btn-info" type="submit">Update</button>
+                       </form>
+                     </div>
+                   </li>
+                 </ul>
+               </div>
+             </span>
+          </div>
+         </div>
+       </div>
+       <div id="loginPage">
+         <template>
+           <div class="login-wrapper border border-light">
+             <form class="form-signin" @submit.prevent="login">
+               <h2 class="form-signin-heading">Please sign in</h2>
+               <label for="inputUsername" style="color:white;" class="sr-only">Username</label>
+               <input v-model="username" type="username" id="inputUsername" class="form-control" placeholder="Username" required>
+               <label for="inputPassword" style="color:white;" class="sr-only">Password</label>
+               <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+             </form>
+           </div>
+         </template>
+       </div>
+    </div>
+    </br>
+    <footer id="displayUser"></footer>
+   <script src="/static/js/main.js" charset="utf-8"></script>
+  </body>
+</html>

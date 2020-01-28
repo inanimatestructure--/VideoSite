@@ -1,0 +1,9 @@
+DELIMITER //
+DROP PROCEDURE IF EXISTS deleteVideos //
+
+CREATE PROCEDURE deleteVideos()
+BEGIN
+  DELETE
+    FROM videos;
+END //
+DELIMITER ;

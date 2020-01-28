@@ -1,0 +1,9 @@
+DELIMITER //
+DROP PROCEDURE IF EXISTS getAUsersVideos //
+
+CREATE PROCEDURE getAUsersVideos(IN id INT)
+BEGIN
+  SELECT *
+    FROM videos WHERE userId = id;
+END //
+DELIMITER ;

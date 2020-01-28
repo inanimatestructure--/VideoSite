@@ -1,0 +1,177 @@
+<style>
+    .login-wrapper {
+      background: #fff;
+      width: 70%;
+    }
+
+    .form-signin {
+      max-width: 330px;
+      padding: 10% 15px;
+      margin: 0 auto;
+    }
+    .form-adduser {
+      width: 600px;
+      padding: 10% 20px;
+      margin: 0 auto;
+    }
+
+    .form-signout {
+      max-width: 330px;
+      padding: 10% 15px;
+      margin: 0 auto;
+    }
+
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+      color: #11373F;
+    }
+    .form-signin .checkbox {
+      font-weight: normal;
+    }
+    .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="username"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 4vw;
+      color: white;
+    }
+
+    /* Style the header */
+    body {font-family: Arial, Helvetica, sans-serif;
+          background: #C4F6FE;
+    }
+
+    /* Style the footer */
+    footer {
+        background-color: #777;
+        padding: 1vw;
+        text-align: center;
+        color: white;
+    }
+
+    form {border: 3px solid #f1f1f1;}
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+           display: block;
+           float: none;
+        }
+        .cancelbtn {
+           width: 100%;
+        }
+    }
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      height: 300px; /* only for demonstration, should be removed */
+    }
+
+    .t {
+      display: table;
+      width: auto;
+      height: auto;
+    }
+    #addUsersDiv{
+        display:none;
+        height:500px;
+        width:300px;
+    }
+
+    ul {
+      display: table-row
+    }
+
+    li {
+      display: table-cell
+    }
+
+    video {
+      display: block
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    form {
+      margin: 0 auto;
+      width:250px;
+    }
+
+  </style>
